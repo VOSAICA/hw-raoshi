@@ -1,5 +1,5 @@
 import numpy as np
-import time
+
 
 class Vector():
     def __init__(self, array):
@@ -116,8 +116,6 @@ class Matrix():
         return c
 
 
-
-x = time.time()
 a = Matrix([[1, 2, 5], [5, 0, 2], [1, 3, 4]])
 b = Matrix([[3, 4, 1], [0, 2, 1], [2, 3, 7]])
 c = Vector([2, 3, 1])
@@ -131,10 +129,8 @@ print(a * c, "\n")
 print(Matrix.eleWise(a, b), "\n")
 print(Vector.innerProd(c, d), "\n")
 print(Vector.outerProd(c, d), "\n")
-y = time.time()
 print("-----" * 20)
 
-z = time.time()
 print("Numpy:\n")
 a = np.array([[1, 2, 5], [5, 0, 2], [1, 3, 4]])
 b = np.array([[3, 4, 1], [0, 2, 1], [2, 3, 7]])
@@ -148,6 +144,3 @@ print(np.matmul(a, c), "\n")
 print(a * b, "\n")
 print(np.inner(c, d), "\n")
 print(np.outer(c, d), "\n")
-
-w = time.time()
-print(y - x,'s', w - z, 's')
