@@ -1,4 +1,4 @@
-#import numpy as np
+import numpy as np
 
 
 class Matrix():
@@ -62,3 +62,6 @@ b = Matrix([[3, 4], [0, 2]])
 #print(a + b)
 #print(a - b)
 print(a * b)
+
+c = np.array([[1, 2, 3], [12, 3, 4]])
+print(c)
