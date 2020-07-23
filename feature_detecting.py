@@ -1,6 +1,6 @@
 import cv2
-import numpy as np
 import matplotlib.pyplot as plt
+
 
 def feature_detecting_harris(img):
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -9,6 +9,7 @@ def feature_detecting_harris(img):
     img[harrisDetector > 0.01*harrisDetector.max()] = [0, 0, 255]
     cv2.imshow('dst', img)
     cv2.waitKey(0)
+
 
 def feature_matching_orb(img1, img2):
     orb = cv2.ORB_create()
@@ -20,7 +21,7 @@ def feature_matching_orb(img1, img2):
 
     matches = bf.match(des1, des2)
 
-    matches = sorted(matches, key = lambda x:x.distance)
+    matches = sorted(matches, key=lambda x: x.distance)
 
     img_match = cv2.drawMatches(img1, kp1, img2, kp2, matches[0:100], None)
 
@@ -28,8 +29,9 @@ def feature_matching_orb(img1, img2):
     plt.imshow(img_match_rgb)
     plt.show()
 
+
 if __name__ == "__main__":
     img1 = cv2.imread("kitty_left.png")
     img2 = cv2.imread("kitty_right.png")
-    #feature_detecting_harris(img1)
+    # feature_detecting_harris(img1)
     feature_matching_orb(img1, img2)

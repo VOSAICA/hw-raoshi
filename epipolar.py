@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def drawlines(img1, img2, lines, pts1, pts2):
     r, c = img1.shape
     img1 = cv2.cvtColor(img1, cv2.COLOR_GRAY2BGR)
@@ -16,6 +17,7 @@ def drawlines(img1, img2, lines, pts1, pts2):
         cv2.circle(img2, tuple(pt2), 10, color, -1)
 
     return img1, img2
+
 
 if __name__ == "__main__":
     img1 = cv2.imread("kitti_l_1.png", 0)
@@ -46,8 +48,8 @@ if __name__ == "__main__":
 
     F, mask = cv2.findFundamentalMat(pts1, pts2, cv2.FM_RANSAC)
 
-    pts1 = pts1[mask.ravel()==1]
-    pts2 = pts2[mask.ravel()==1]
+    pts1 = pts1[mask.ravel() == 1]
+    pts2 = pts2[mask.ravel() == 1]
 
     lines1 = cv2.computeCorrespondEpilines(pts2.reshape(-1, 1, 2), 2, F)
     lines1 = lines1.reshape(-1, 3)
